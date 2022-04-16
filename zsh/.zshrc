@@ -110,14 +110,6 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-#apt aliases
-# alias :upgrade="sudo apt update && sudo apt upgrade"
-# alias :remove="sudo apt remove"
-# alias :search="sudo apt search"
-# alias :autoremove="sudo apt autoremove"
-# alias :install="sudo apt install"
-
 # misc
 alias reload="source ~/.zshrc" #reload the session
 alias die="exit" #end the session
