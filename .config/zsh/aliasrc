@@ -1,0 +1,49 @@
+## Alias File
+
+# ex - archive extractor
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.tar.xz)    tar xJf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# misc
+alias reload="source ~/.config/zsh/.zshrc" #reload the session
+alias die="exit" #end the session
+alias lt="ls --human-readable --size -1 -S --classify" #list sorted by size
+alias back="cd $OLDPWD" #go to previous directory
+alias ls="lsd"
+alias tree="lsd --tree"
+alias yolo="git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\""
+
+# networking aliases
+alias myip="wget -qO - https://api.ipify.org" #check your ip
+alias localip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'" #check ip in local-network
+alias listenports="sudo netstat -tulanp | grep LISTEN" #list open listening ports
+alias allports="sudo netstat -tulanp" #list all ports
+
+# system resource aliases
+alias meminfo="free -m -l -t" #display memory info
+alias df="df -h" #disk usage - human readable
+alias totaldf="df -h /" #total disk usage - human readable
+alias pscpu="ps auxf | sort -nr -k 3" #top processes using cpu
+alias psmem="ps auxf | sort -nr -k 4" #top processes using memory
+
