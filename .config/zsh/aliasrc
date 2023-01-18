@@ -34,6 +34,26 @@ alias ls="lsd"
 alias tree="lsd --tree"
 alias yolo="git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\""
 
+# get fastest mirrors in your neighborhood
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
+
+
+# youtube download
+alias yta-format="yt-dlp -f 'ba' -x --audio-format "
+alias yta-best="yt-dlp -f 'ba' -x "
+alias yta-mp3="yt-dlp -f 'ba' -x --audio-format mp3 "
+alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 "
+alias ytvpl="yt-dlp -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' --yes-playlist -o '%(playlist_index)s-%(title)s-%(id)s.%(ext)s' --embed-chapters" #download video youtube playlist with index (pass playlist id as argument)
+alias ytapl="yt-dlp -f 'ba' -x --yes-playlist -o '%(playlist_index)s-%(title)s-%(id)s.%(ext)s'" #download audio youtube playlist with index (pass playlist id as argument)
+
+# colorize grep command output
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
 # networking aliases
 alias myip="wget -qO - https://api.ipify.org" #check your ip
 alias localip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'" #check ip in local-network
@@ -41,9 +61,16 @@ alias listenports="sudo netstat -tulanp | grep LISTEN" #list open listening port
 alias allports="sudo netstat -tulanp" #list all ports
 
 # system resource aliases
+alias hw="hwinfo --short" #hardware info --short
 alias meminfo="free -m -l -t" #display memory info
 alias df="df -h" #disk usage - human readable
 alias totaldf="df -h /" #total disk usage - human readable
 alias pscpu="ps auxf | sort -nr -k 3" #top processes using cpu
 alias psmem="ps auxf | sort -nr -k 4" #top processes using memory
 
+# system maintanance
+alias failedserv="systemctl --failed" #check for failed systemd services
+alias jctl="journalctl -p 3 -xb" # get the eror messages from journalctl
+alias clean_orphaned='sudo pacman -Rns $(pacman -Qtdq)' #cleanup orphaned packages
+alias calcache='echo pacman:\\t $(du -sh /var/cache/pacman/pkg/) \\nparu:\\t $(du -sh ~/.cache/paru/)'
+alias clear_cache='paru -Sc'
