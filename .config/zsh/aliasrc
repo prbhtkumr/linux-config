@@ -27,6 +27,7 @@ ex ()
 
 # misc
 alias reload="source ~/.config/zsh/.zshrc" #reload the session
+alias set_time="echo 'setting the time for timezone Asia/Kolkata' && sudo timedatectl set-time '$(curl -s -X 'GET' 'https://www.timeapi.io/api/Time/current/zone?timeZone=Asia/Kolkata' -H 'accept: application/json' | jq .dateTime | sed s/T/" "/ | sed s/'"'/''/ | cut -f1 -d ".")'"
 alias die="exit" #end the session
 alias lt="ls --human-readable --size -1 -S --classify" #list sorted by size
 alias back="cd $OLDPWD" #go to previous directory
