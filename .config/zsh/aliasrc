@@ -32,7 +32,9 @@ alias die="exit" #end the session
 alias lt="/bin/ls --human-readable --size -1 -S --classify" #list sorted by size
 alias back="cd $OLDPWD" #go to previous directory
 alias ls="lsd"
+alias la="lsd -la"
 alias tree="lsd --tree"
+alias e="nvim"
 alias yolo="git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\""
 
 # get fastest mirrors in your neighborhood
