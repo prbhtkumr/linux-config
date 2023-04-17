@@ -3,7 +3,7 @@
 setopt autocd extendedglob
 
 ## History in cache directory 
-HISTFILE=~/.cache/zsh/.histfile
+HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -67,7 +67,7 @@ function zsh_add_plugin(){
 		zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.pluign"
 		zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
 	else
-		git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+		sudo git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
 	fi
 }
 
