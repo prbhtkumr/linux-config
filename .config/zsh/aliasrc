@@ -26,16 +26,15 @@ ex ()
 }
 
 # misc
-alias reload="source ~/.config/zsh/.zshrc" #reload the session
-alias set_time="echo 'setting the time for timezone Asia/Kolkata' && sudo timedatectl set-time '$(curl -s -X 'GET' 'https://www.timeapi.io/api/Time/current/zone?timeZone=Asia/Kolkata' -H 'accept: application/json' | jq .dateTime | sed s/T/" "/ | sed s/'"'/''/ | cut -f1 -d ".")'"
+alias reload="source ~/.zshrc" #reload the session
+alias set_time='echo "setting the time for timezone Asia/Kolkata" && sudo timedatectl set-time "$(curl -s -X GET "https://www.timeapi.io/api/Time/current/zone?timeZone=Asia/Kolkata" -H "accept: application/json" | jq -r .dateTime | sed "s/T/ /" | cut -f1 -d ".")"'
 alias die="exit" #end the session
 alias lt="/bin/ls --human-readable --size -1 -S --classify" #list sorted by size
-alias back="cd $OLDPWD" #go to previous directory
+alias back="cd -" #go to previous directory
 alias ls="lsd"
 alias la="lsd -la"
 alias tree="lsd --tree"
 alias e="nvim"
-alias yolo="git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\""
 
 # get fastest mirrors in your neighborhood
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -49,7 +48,8 @@ alias yta-format="yt-dlp -f 'ba' -x --audio-format "
 alias yta-best="yt-dlp -f 'ba' -x "
 alias yta-mp3="yt-dlp -f 'ba' -x --audio-format mp3 "
 alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 "
-alias ytvpl="yt-dlp -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' --yes-playlist -o '%(playlist_index)s-%(title)s-%(id)s.%(ext)s' --embed-chapters" #download video youtube playlist with index (pass playlist id as argument)
+alias ytv-1080="yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' "
+alias ytvpl="yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' --yes-playlist -o '%(playlist_index)s-%(title)s-%(id)s.%(ext)s' --embed-chapters" #download video youtube playlist with index (pass playlist id as argument)
 alias ytapl="yt-dlp -f 'ba' -x --yes-playlist -o '%(playlist_index)s-%(title)s-%(id)s.%(ext)s'" #download audio youtube playlist with index (pass playlist id as argument)
 
 # colorize grep command output
