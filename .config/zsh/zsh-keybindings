@@ -2,4 +2,6 @@ bindkey -s '^f' 'cd $(find -type d | fzf)^M'		# Ctrl+f to find folder
 bindkey -s '^o' 'xdg-open $(find -type f | fzf)^M'	# Ctrl+o to open file
 bindkey -s '^p' 'paruz^M'				# Ctrl+p to install package
 bindkey -s '^b' 'btop^M'				# Ctrl +b to launch btop
-bindkey '^r' history-incremental-search-backward        # Ctrl+r for non-pattern search like in bash
+bindkey "^[[3~" delete-char
+bindkey '^H' backward-kill-word
+bindkey '5~' kill-word
