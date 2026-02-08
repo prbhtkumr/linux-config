@@ -242,23 +242,23 @@ keybinds clear-defaults=true {
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     }
-        normal{
-            // bind F1 to open monocle in a new floating pane and open any results in a new tiled/floating pane
-                    bind "F1" {
-                        LaunchOrFocusPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
-                            floating true
-                        };
-                        SwitchToMode "Normal"
-                    }
-                    // bind "Alt m" to open monocle on top of the current pane and open any results on top of itself
-                    bind "Alt m" {
-                        LaunchPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
-                            in_place true
-                            kiosk true
-                        };
-                        SwitchToMode "Normal"
-                        }
-            }
+    normal{
+        // bind F1 to open monocle in a new floating pane and open any results in a new tiled/floating pane
+        bind "F1" {
+        LaunchOrFocusPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
+            floating true
+            };
+            SwitchToMode "Normal"
+        }
+        // bind "Alt m" to open monocle on top of the current pane and open any results on top of itself
+        bind "Alt m" {
+        LaunchPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
+            in_place true
+            kiosk true
+            };
+        SwitchToMode "Normal"
+        }
+    }
 }
 
 // Plugin aliases - can be used to change the implementation of Zellij
