@@ -243,6 +243,24 @@ keybinds clear-defaults=true {
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     }
     normal{
+        // CUSTOM BINDINGS START
+
+        // Tab Navigation
+        bind "Alt ]" {GoToNextTab;}
+        bind "Alt [" {GoToPreviousTab;}
+        bind "Alt 1" {GoToTab 1;}
+        bind "Alt 2" {GoToTab 2;}
+        bind "Alt 3" {GoToTab 3;}
+        bind "Alt 4" {GoToTab 4;}
+        bind "Alt 5" {GoToTab 5;}
+        bind "Alt 6" {GoToTab 6;}
+        bind "Alt 7" {GoToTab 7;}
+        bind "Alt 8" {GoToTab 8;}
+        bind "Alt 9" {GoToTab 9;}
+        bind "Alt 0" {GoToTab 10;}
+
+        // CUSTOM BINDINGS END
+
 
         // MONOCLE SETTINGS START
         // bind F1 to open monocle in a new floating pane and open any results in a new tiled/floating pane
