@@ -243,6 +243,8 @@ keybinds clear-defaults=true {
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     }
     normal{
+
+        // MONOCLE SETTINGS START
         // bind F1 to open monocle in a new floating pane and open any results in a new tiled/floating pane
         bind "F1" {
         LaunchOrFocusPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
@@ -258,6 +260,7 @@ keybinds clear-defaults=true {
             };
         SwitchToMode "Normal"
         }
+        // MONOCLE SETTINGS END
     }
 }
 
